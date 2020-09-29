@@ -71,7 +71,7 @@ ylabels = data['toxic'] #the labels we want to test against (the answer - depend
 
 X_train, X_test, y_train, y_test = train_test_split(X, ylabels, test_size=0.3)
 
-classifier = LogisticRegression(solver='liblinear',max_iter=500)#was 1000 (doing 25x more iterations)
+classifier = LogisticRegression(max_iter=25000)#was 1000 (doing 25x more iterations)
 
 #create BoW pipeline
 pipe = Pipeline([("cleaner", predictors()),
@@ -105,3 +105,5 @@ for i in range(2):
     for j in range(2):
         ax.text(j, i, cm[i, j], ha='center', va='center', color='red')
 plt.show()
+
+
